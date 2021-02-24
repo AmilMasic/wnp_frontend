@@ -43,7 +43,6 @@ function postPark(name, established, description, image_url, nearest_city, count
   })
   .then(response => response.json())
   .then(park => {
-    // debugger;
     renderPark(park)
   })
 }
