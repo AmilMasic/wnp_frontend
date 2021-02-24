@@ -12,6 +12,9 @@ function getParks(){
   .then(response => response.json())
   .then(parks => {
     parks.data.forEach((park) => {
+
+      let newPark = new Park(park, park.attributes)
+
       renderPark(park)
     });
 
@@ -43,11 +46,13 @@ function postPark(name, established, description, image_url, nearest_city, count
   })
   .then(response => response.json())
   .then(park => {
+  
     renderPark(park)
   })
 }
 
 function renderPark(park) {
+
   const parkMarkup = `
   <div data-id=${park.id}>
   <img src=${park.attributes.image_url} height="300" width="450">
