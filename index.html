@@ -6,8 +6,41 @@
     <title>World National Parks</title>
   </head>
   <body>
-    <div id="park-container">
+    <div class="form-container">
 
+  <form id="create-park-form" style="">
+    <h3>Create a Park!</h3>
+
+    <input id='input-park-name' type="text" name="name" value="" placeholder="Enter the park name..." class="input-text">
+    <br><br>
+    <input id='input-established' type="text" name="established" value="" placeholder="When was the park established..." class="input-text">
+    <br><br>
+    <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter the park description..."></textarea>
+    <br><br>
+    <input id='input-url' type="text" name="image" value="" placeholder="Enter the Park image URL..." class="input-text">
+    <br><br>
+    <input id='input-city' type="text" name="city" value="" placeholder="Enter the nearest city..." class="input-text">
+    <br><br>
+    <select id="countries" name="countries">
+      <option value="1">Algeria</option>
+      <option value="2">India</option>
+      <option value="3">Bosnia</option>
+      <option value="4">USA</option>
+    </select>
+    <br><br>
+    <!-- <input id='input-country-name' type="text" name="country" value="" placeholder="Enter the Country name..." class="input-text">
+    <br><br>
+
+    <input id='input-language' type="text" name="language" value="" placeholder="Enter the oficial language..." class="input-text">
+    <br><br> -->
+
+
+    <input id= 'create-button' type="submit" name="submit" value="Create New Park" class="submit">
+  </form>
+  <br><br>
+</div>
+    <div id="park-container">
+      <h3>List of all created parks</h3>
     </div>
   </body>
 </html>
