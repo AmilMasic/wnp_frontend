@@ -61,17 +61,5 @@ function postPark(name, established, description, image_url, nearest_city, count
   .then(response => response.json())
   .then(park => {
     console.log(park);
-    // const syllabusData = syllabus.data
-    // // render JSON response
-    // const syllabusMarkup = `
-    // <div data-id=${syllabus.id}>
-    //   <img src=${syllabusData.attributes.image_url} height="200" width="250">
-    //   <h3>${syllabusData.attributes.title}</h3>
-    //   <p>${syllabusData.attributes.category.name}</p>
-    //   <button data-id=${syllabusData.id}>edit</button>
-    // </div>
-    // <br><br>`;
-
-    // document.querySelector('#syllabus-container').innerHTML += syllabusMarkup;
   })
 }
