@@ -1,5 +1,5 @@
 const fetchingParks = "http://localhost:3000/api/v1/national_parks"
-  
+
 document.addEventListener('DOMContentLoaded', () => {
   getParks();
 
