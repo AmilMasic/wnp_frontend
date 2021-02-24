@@ -14,7 +14,7 @@ function getParks(){
     parks.data.forEach((park) => {
       const parkMarkup = `
       <div data-id=${park.id}>
-      <img src=${park.attributes.image_url} height="200" width="250"
+      <img src=${park.attributes.image_url} height="300" width="450"
       <br>
       <h3> Park Name: ${park.attributes.name}</h3>
       <p country-name>Country: ${[park.attributes.country.name]}</p>
@@ -37,5 +37,16 @@ function getParks(){
 
 function createFormHandler(e) {
   e.preventDefault()
-  console.log(e);
+  // debugger;
+  const parkNameInput = document.querySelector('#input-park-name').value
+  const inputEstablished =  document.querySelector('#input-established').value
+  const inputDescription =  document.querySelector('#input-description').value
+  const inputImage = document.querySelector('#input-url').value
+  const inputCity = document.querySelector('#input-city').value
+  const countryId = parseInt(document.querySelector('#countries').value)
+  postFetch(parkNameInput, inputEstablished, inputDescription, inputImage, inputCity, countryId)
+}
+
+function postFetch(name, established, description, image_url, nearest_city, country_id) {
+  console.log(name, established, description, image_url, nearest_city, country_id);
 }
