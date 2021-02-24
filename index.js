@@ -2,7 +2,9 @@ const fetchingParks = "http://localhost:3000/api/v1/national_parks"
 
 document.addEventListener('DOMContentLoaded', () => {
   getParks();
+  const createParkForm = document.querySelector("#create-park-form")
 
+  createParkForm.addEventListener("submit", (e) => createFormHandler(e))
 })
 
 function getParks(){
@@ -31,4 +33,9 @@ function getParks(){
     });
 
   })
+}
+
+function createFormHandler(e) {
+  e.preventDefault()
+  console.log(e);
 }
