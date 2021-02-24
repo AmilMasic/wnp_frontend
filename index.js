@@ -12,24 +12,7 @@ function getParks(){
   .then(response => response.json())
   .then(parks => {
     parks.data.forEach((park) => {
-      const parkMarkup = `
-      <div data-id=${park.id}>
-      <img src=${park.attributes.image_url} height="300" width="450"
-      <br>
-      <h3> Park Name: ${park.attributes.name}</h3>
-      <p country-name>Country: ${[park.attributes.country.name]}</p>
-      <p>Oficial Langauge: ${[park.attributes.country.language]}</p>
-      <p>Established in: ${[park.attributes.established]}</p>
-      <p>Short Description: ${[park.attributes.description]}</p>
-      <p>The Nearest City: ${[park.attributes.nearest_city]}</p>
-      </div>
-      <br>
-      `;
-
-      document.querySelector('#park-container').innerHTML += parkMarkup
-
-
-
+      renderPark(park)
     });
 
   })
@@ -60,6 +43,25 @@ function postPark(name, established, description, image_url, nearest_city, count
   })
   .then(response => response.json())
   .then(park => {
-    console.log(park);
+    // debugger;
+    renderPark(park)
   })
+}
+
+function renderPark(park) {
+  const parkMarkup = `
+  <div data-id=${park.id}>
+  <img src=${park.attributes.image_url} height="300" width="450">
+  <br>
+  <h3> Park Name: ${park.attributes.name}</h3>
+  <p country-name>Country: ${[park.attributes.country.name]}</p>
+  <p>Oficial Langauge: ${[park.attributes.country.language]}</p>
+  <p>Established in: ${[park.attributes.established]}</p>
+  <p>Short Description: ${[park.attributes.description]}</p>
+  <p>The Nearest City: ${[park.attributes.nearest_city]}</p>
+  </div>
+  <br>
+  `;
+
+  document.querySelector('#park-container').innerHTML += parkMarkup
 }
