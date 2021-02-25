@@ -31,6 +31,8 @@ function createFormHandler(e) {
   const inputCity = document.querySelector('#input-city').value
   const countryId = parseInt(document.querySelector('#countries').value)
   postPark(parkNameInput, inputEstablished, inputDescription, inputImage, inputCity, countryId)
+
+
 }
 
 function postPark(name, established, description, image_url, nearest_city, country_id) {
@@ -49,7 +51,8 @@ function postPark(name, established, description, image_url, nearest_city, count
     const parkData = park.data;
     let newPark = new Park(parkData, parkData.attributes)
 
-    document.querySelector('#park-container').innerHTML += newPark.renderPark()
+    document.querySelector('#park-container').innerHTML += newPark.renderPark();
+    document.querySelector("#create-park-form").reset();
   })
 }
 
