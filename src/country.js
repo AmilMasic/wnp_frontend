@@ -6,6 +6,13 @@ class Country {
     this.continent = countryAttributes.continent
     Country.all.push(this)
   }
+
+  createNewCountryOption() {
+    let select = document.getElementById("list");
+    let newOption = document.createElement("option");
+    newOption.text = this.name;
+    return select.add(newOption);
+  }
 }
 
 Country.all = [];

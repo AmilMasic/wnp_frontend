@@ -3,7 +3,6 @@ const countriesURL = "http://localhost:3000/api/v1/countries"
 const createParkForm = document.querySelector("#create-park-form")
 
 
-
 function getCountries() {
   fetch(countriesURL)
   .then(response => response.json())
@@ -12,7 +11,7 @@ function getCountries() {
     countries.data.forEach((country) => {
 
       let newCountry = new Country(country, country.attributes)
-  
+      newCountry.createNewCountryOption();
 
     })
   })
@@ -23,27 +22,29 @@ function getParks(){
   fetch(parksUrl)
   .then(response => response.json())
   .then(parks => {
-    countryArray = [];
     parks.data.forEach((park) => {
 
       let newPark = new Park(park, park.attributes)
       document.querySelector('#park-container').innerHTML += newPark.renderPark()
 
-        countryArray.push(park.attributes.country.name);
+        // countryArray.push(park.attributes.country.name);
 
     });
-    let uniqueCountries = countryArray.unique();
-    uniqueCountries.forEach((country) => {
-      let select = document.getElementById("list");
-      let newOption = document.createElement("option");
-      newOption.text = country;
-      select.add(newOption);
-    })
+    // let uniqueCountries = countryArray.unique();
+    // uniqueCountries.forEach((country) => {
+    //
+    // })
+
+
   })
 }
 
-getParks();
+
 getCountries();
+getParks();
+
+
+
 
 
 
@@ -87,7 +88,7 @@ function postPark(name, established, description, image_url, nearest_city, count
     const parkData = park.data;
     let newPark = new Park(parkData, parkData.attributes)
     let select = document.getElementById("list");
-    debugger;
+    // debugger;
     document.querySelector('#park-container').innerHTML += newPark.renderPark();
     document.querySelector("#create-park-form").reset();
   })
@@ -104,19 +105,19 @@ function postPark(name, established, description, image_url, nearest_city, count
 //   select.add(newOption);
 // }
 
-Array.prototype.contains = function(v) {
-  for (let i = 0; i < this.length; i++) {
-    if (this[i] === v) return true;
-  }
-  return false;
-};
-
-Array.prototype.unique = function() {
-  let arr = [];
-  for (let i = 0; i < this.length; i++) {
-    if (!arr.contains(this[i])) {
-      arr.push(this[i]);
-    }
-  }
-  return arr;
-}
+// Array.prototype.contains = function(v) {
+//   for (let i = 0; i < this.length; i++) {
+//     if (this[i] === v) return true;
+//   }
+//   return false;
+// };
+//
+// Array.prototype.unique = function() {
+//   let arr = [];
+//   for (let i = 0; i < this.length; i++) {
+//     if (!arr.contains(this[i])) {
+//       arr.push(this[i]);
+//     }
+//   }
+//   return arr;
+// }
