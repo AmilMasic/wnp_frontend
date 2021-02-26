@@ -10,7 +10,10 @@ function getCountries() {
   .then(countries => {
 
     countries.data.forEach((country) => {
-      debugger;
+
+      let newCountry = new Country(country, country.attributes)
+  
+
     })
   })
 }
