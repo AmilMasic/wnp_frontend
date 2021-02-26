@@ -1,11 +1,23 @@
-const parkUrl = "http://localhost:3000/api/v1/national_parks"
+const parksUrl = "http://localhost:3000/api/v1/national_parks"
+const countriesURL = "http://localhost:3000/api/v1/countries"
 const createParkForm = document.querySelector("#create-park-form")
 
 
 
+function getCountries() {
+  fetch(countriesURL)
+  .then(response => response.json())
+  .then(countries => {
+
+    countries.data.forEach((country) => {
+      debugger;
+    })
+  })
+}
+
 
 function getParks(){
-  fetch(parkUrl)
+  fetch(parksUrl)
   .then(response => response.json())
   .then(parks => {
     countryArray = [];
@@ -28,7 +40,7 @@ function getParks(){
 }
 
 getParks();
-
+getCountries();
 
 
 
