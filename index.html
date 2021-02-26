@@ -33,15 +33,29 @@
         <select name="list" id="list" onchange="selectionChange()">
           <option value="">Select A Country</option>
     	  </select>
+
+
         <br><br>
-        <label for="language">Language</label>
+        <label for="language">Language:</label>
         <input type="text" id="language">
         <input type="hidden" id="hidden-country-id">
         <br><br>
-        <label for="language">Continent</label>
+        <label for="language">Continent:</label>
         <input type="text" id="continent">
         <br><br>
-        <input type="text" id="txtbox">
+
+      </div>
+      <br>
+      <div class=""> Or Create a new Country if it isn't listed!
+        <br>
+        <label for="">New Country:</label>
+        <input type="text" id="new-country-name" placeholder="Write New Country">
+        <br><br>
+        <label for="">Language:</label>
+        <input type="text" id="new-country-language" name="" value="">
+        <br><br>
+        <label for="">Continent</label>
+        <input type="text" id="new-country-language" name="" value="">
         <input type="button" name="button" value="Add New" onClick="runList()" />
       </div>
     <br><br>
