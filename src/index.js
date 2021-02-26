@@ -18,6 +18,20 @@ function getCountries() {
 }
 
 
+function selectionChange(){
+  const selectElement = document.querySelector('#list');
+
+  // selectElement.addEventListener('change', (event) => {
+    let countryId = event.currentTarget.selectedIndex;
+    let selectedCountry = Country.all.find(o => o.id == countryId);
+    // debugger;
+    const language = document.querySelector('#language');
+
+    language.value = selectedCountry.language;
+
+  };
+
+
 function getParks(){
   fetch(parksUrl)
   .then(response => response.json())
