@@ -26,8 +26,9 @@ function selectionChange(){
     let selectedCountry = Country.all.find(o => o.id == countryId);
     // debugger;
     const language = document.querySelector('#language');
-
+    const continent = document.querySelector('#continent');
     language.value = selectedCountry.language;
+    continent.value = selectedCountry.continent;
 
   };
 
