@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript" src="src/park.js"></script>
+    <script type="text/javascript" src="src/country.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <title>World National Parks</title>
   </head>
@@ -29,11 +30,19 @@
       <option value="4">USA</option>
     </select> -->
       <div > Country:
-        <select name="list" id="list">
-
+        <select name="list" id="list" onchange="selectionChange()">
+          <option value="">Select A Country</option>
     	  </select>
+        <br><br>
+        <label for="language">Language</label>
+        <input type="text" id="language">
+        <input type="hidden" id="hidden-country-id">
+        <br><br>
+        <label for="language">Continent</label>
+        <input type="text" id="continent">
+        <br><br>
         <input type="text" id="txtbox">
-        <INPUT type="button" name="button" value="Add New" onClick="runList()" />
+        <input type="button" name="button" value="Add New" onClick="runList()" />
       </div>
     <br><br>
     <!-- <input id='input-country-name' type="text" name="country" value="" placeholder="Enter the Country name..." class="input-text">
