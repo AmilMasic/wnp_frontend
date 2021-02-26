@@ -16,7 +16,12 @@ function getCountries() {
     })
   })
 }
+document.addEventListener('DOMContentLoaded', () => {
+  getParks();
+  const createParkForm = document.querySelector("#create-park-form")
 
+  createParkForm.addEventListener("submit", (e) => createFormHandler(e))
+})
 
 function selectionChange(){
   const selectElement = document.querySelector('#list');
@@ -27,9 +32,10 @@ function selectionChange(){
     // debugger;
     const language = document.querySelector('#language');
     const continent = document.querySelector('#continent');
+    const hiddenId = document.getElementById("hidden-country-id");
     language.value = selectedCountry.language;
     continent.value = selectedCountry.continent;
-
+    hiddenId.value = selectedCountry.id;
   };
 
 
@@ -65,25 +71,14 @@ getParks();
 
 function createFormHandler(e) {
   e.preventDefault()
+  // debugger;
   const parkNameInput = document.querySelector('#input-park-name').value
   const inputEstablished =  document.querySelector('#input-established').value
   const inputDescription =  document.querySelector('#input-description').value
   const inputImage = document.querySelector('#input-url').value
   const inputCity = document.querySelector('#input-city').value
-  const countryId = parseInt(document.querySelector('#countries').value)
-  // -------------------------------------------------
-  //  **WIP **
-  // const userInputCountryName = document.querySelector("#txtbox").value
-  // const allParks = Park.all
-  // allParks.forEach(park => {
-  //    if (park.country.name === userInputCountryName) {
-  //     console.log("yes");
-  //    } else {
-  //     console.log("negative");
-  //    }
-  // })
-  // --------------------------------------------------
-  // debugger;
+  const countryId = parseInt(document.querySelector('#hidden-country-id').value)
+
   postPark(parkNameInput, inputEstablished, inputDescription, inputImage, inputCity, countryId)
 
 
@@ -92,7 +87,7 @@ function createFormHandler(e) {
 function postPark(name, established, description, image_url, nearest_city, country_id) {
   let bodyData = {name, established, description, image_url, nearest_city, country_id}
 
-  fetch(parkUrl, {
+  fetch(parksUrl, {
     // POST request
     method: "POST",
     headers: {"Content-Type": "application/json"},
