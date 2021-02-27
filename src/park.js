@@ -21,7 +21,7 @@ class Park {
     <p class="established">Established in: ${this.established}</p>
     <p class="nearest-city">The Nearest City: ${this.nearest_city}</p>
     <p class="country-name">Country: ${this.country.name}</p>
-    <p class="continent">Contient: ${this.country.continent}</p>
+    <p class="continent">Continent: ${this.country.continent}</p>
     <p class="language">Oficial Langauge: ${this.country.language}</p>
     <p class="description">Short Description: ${this.description}</p>
     </div>

@@ -12,36 +12,35 @@
 
   <form id="create-park-form" style="">
     <h3>Create a Park!</h3>
-
-    <input id='input-park-name' type="text" name="name" value="" placeholder="Enter the park name..." class="input-text">
+    <label for="name">The Park Name:</label>
+    <input id='input-park-name' type="text" name="name" value="" placeholder="Yellowstone..." class="input-text">
     <br><br>
-    <input id='input-established' type="text" name="established" value="" placeholder="When was the park established..." class="input-text">
+    <label for="established">What year was the park established?</label>
+    <input id='input-established' type="text" name="established" value="" placeholder="1872..." class="input-text">
     <br><br>
-    <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter the park description..."></textarea>
+    <label for="description">Add a description:</label>
+    <br>
+    <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Yellowstone is the first National..."></textarea>
     <br><br>
-    <input id='input-url' type="text" name="image" value="" placeholder="Enter the Park image URL..." class="input-text">
+    <label for="image">Image link</label>
+    <input id='input-url' type="text" name="image" value="" placeholder="www.image.com/image-url-uri...." class="input-text">
     <br><br>
-    <input id='input-city' type="text" name="city" value="" placeholder="Enter the nearest city..." class="input-text">
+    <label for="city">The Closest City:</label>
+    <input id='input-city' type="text" name="city" value="" placeholder="West Yellowstone, MT..." class="input-text">
     <br><br>
-    <!-- <select id="countries" name="countries">
-      <option value="1">Algeria</option>
-      <option value="2">India</option>
-      <option value="3">Bosnia</option>
-      <option value="4">USA</option>
-    </select> -->
       <div > Country:
         <select name="list" id="list" onchange="selectionChange()">
-          <option value="">Select A Country</option>
+          <option value="">Bandiaterra...</option>
     	  </select>
 
 
         <br><br>
         <label for="language">Language:</label>
-        <input type="text" id="language">
+        <input type="text" id="language" disabled placeholder="Danish">
         <input type="hidden" id="hidden-country-id">
         <br><br>
         <label for="language">Continent:</label>
-        <input type="text" id="continent">
+        <input type="text" id="continent" placeholder="Asia" disabled>
         <br><br>
 
       </div>
@@ -49,13 +48,13 @@
       <div class=""> Or Create a new Country if it isn't listed!
         <br>
         <label for="">New Country:</label>
-        <input type="text" id="new-country-name" placeholder="Write New Country">
+        <input type="text" id="new-country-name" placeholder="Mozambique..">
         <br><br>
         <label for="">Language:</label>
-        <input type="text" id="new-country-language" name="" value="">
+        <input type="text" id="new-country-language" name="" value="" placeholder="Shona...">
         <br><br>
         <label for="">Continent</label>
-        <input type="text" id="new-country-language" name="" value="">
+        <input type="text" id="new-country-language" name="" value="" placeholder="Africa...">
         <input type="button" name="button" value="Add New" onClick="runList()" />
       </div>
     <br><br>
