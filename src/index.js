@@ -3,19 +3,10 @@ const countriesURL = "http://localhost:3000/api/v1/countries"
 const createParkForm = document.querySelector("#create-park-form")
 
 
-function getCountries() {
-  fetch(countriesURL)
-  .then(response => response.json())
-  .then(countries => {
-    countries.data.forEach((country) => {
-      let newCountry = new Country(country, country.attributes)
-      newCountry.createNewCountryOption();
-    })
-  })
-}
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  getParks();
+
   const createParkForm = document.querySelector("#create-park-form")
 
   createParkForm.addEventListener("submit", (e) => createFormHandler(e))
@@ -34,16 +25,7 @@ function selectionChange(){
   };
 
 
-function getParks(){
-  fetch(parksUrl)
-  .then(response => response.json())
-  .then(parks => {
-    parks.data.forEach((park) => {
-      let newPark = new Park(park, park.attributes)
-      document.querySelector('#park-container').innerHTML += newPark.renderPark()
-    });
-  })
-}
+
 
 getCountries();
 getParks();
@@ -62,6 +44,30 @@ function createFormHandler(e) {
 
 
 }
+
+// fetch functions
+function getParks(){
+  fetch(parksUrl)
+  .then(response => response.json())
+  .then(parks => {
+    parks.data.forEach((park) => {
+      let newPark = new Park(park, park.attributes)
+      document.querySelector('#park-container').innerHTML += newPark.renderPark()
+    });
+  })
+}
+
+function getCountries() {
+  fetch(countriesURL)
+  .then(response => response.json())
+  .then(countries => {
+    countries.data.forEach((country) => {
+      let newCountry = new Country(country, country.attributes)
+      newCountry.createNewCountryOption();
+    })
+  })
+}
+
 
 function postPark(name, established, description, image_url, nearest_city, country_id) {
   let bodyData = {name, established, description, image_url, nearest_city, country_id}
@@ -82,7 +88,6 @@ function postPark(name, established, description, image_url, nearest_city, count
     document.querySelector("#create-park-form").reset();
   })
 }
-
 
 function postCountry(name, language, continent) {
   let bodyData = {name, language, continent}
