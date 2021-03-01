@@ -10,6 +10,7 @@ class Country {
   createNewCountryOption() {
     let select = document.getElementById("list");
     let newOption = document.createElement("option");
+    // debugger;
     newOption.id = parseInt(this.id);
     newOption.text = this.name;
     return select.add(newOption);

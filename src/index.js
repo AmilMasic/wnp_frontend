@@ -27,12 +27,13 @@ function selectionChange(){
   const selectElement = document.querySelector('#list');
 
   // selectElement.addEventListener('change', (event) => {
-    let countryId = event.currentTarget.selectedIndex;
-    let selectedCountry = Country.all.find(o => o.id == countryId);
+    let selectedCountryName = event.currentTarget.value;
+    let selectedCountry = Country.all.find(o => o.name == selectedCountryName);
     // debugger;
     const language = document.querySelector('#language');
     const continent = document.querySelector('#continent');
     const hiddenId = document.getElementById("hidden-country-id");
+    // debugger;
     language.value = selectedCountry.language;
     continent.value = selectedCountry.continent;
     hiddenId.value = selectedCountry.id;
@@ -133,7 +134,10 @@ function runList() {
   const countryLanguageInput = document.getElementById("new-country-language").value
   const countryContinentInput = document.getElementById("new-country-continent").value
 
-  postCountry(countryNameInput, countryLanguageInput, countryContinentInput)
+  postCountry(countryNameInput, countryLanguageInput, countryContinentInput);
+  document.getElementById("new-country-name").value = ""
+  document.getElementById("new-country-language").value = ""
+  document.getElementById("new-country-continent").value = ""
 }
 
 // Array.prototype.contains = function(v) {
