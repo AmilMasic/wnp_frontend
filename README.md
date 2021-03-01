@@ -5,7 +5,7 @@
 A simple webapp that allows users to create and view national parks all over the world.
 
 ## Getting Started
-
+- requires wnp_backend 
 - CD into the project folder and run, on Linux:
 if using chrome
 `google-chrome index.html`
