@@ -105,15 +105,36 @@ function postPark(name, established, description, image_url, nearest_city, count
 }
 
 
-// function runList() {
-//
-//   let select = document.getElementById("list");
-//   let newOption = document.createElement("option");
-//
-//   newOption.text = document.getElementById("txtbox").value;
-//
-//   select.add(newOption);
-// }
+function postCountry(name, language, continent) {
+  let bodyData = {name, language, continent}
+
+  fetch(countriesURL, {
+    // POST request
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(country => {
+    const countryData = country.data;
+    let newCountry = new Country(countryData, countryData.attributes)
+    newCountry.createNewCountryOption();
+
+    // let select = document.getElementById("list");
+    // debugger;
+    // document.querySelector('#park-container').innerHTML += newPark.renderPark();
+    // document.querySelector("#create-park-form").reset();
+  })
+}
+
+function runList() {
+  // debugger;
+  const countryNameInput = document.getElementById("new-country-name").value
+  const countryLanguageInput = document.getElementById("new-country-language").value
+  const countryContinentInput = document.getElementById("new-country-continent").value
+
+  postCountry(countryNameInput, countryLanguageInput, countryContinentInput)
+}
 
 // Array.prototype.contains = function(v) {
 //   for (let i = 0; i < this.length; i++) {
