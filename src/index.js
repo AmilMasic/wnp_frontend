@@ -1,9 +1,8 @@
 const parksUrl = "http://localhost:3000/api/v1/national_parks"
 const countriesURL = "http://localhost:3000/api/v1/countries"
-const createParkForm = document.querySelector("#create-park-form")
 
-
-
+getCountries();
+getParks();
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -12,6 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
   createParkForm.addEventListener("submit", (e) => createFormHandler(e))
 })
 
+// form submit listener
+function createFormHandler(e) {
+  e.preventDefault()
+
+  const parkNameInput = document.querySelector('#input-park-name').value
+  const inputEstablished =  document.querySelector('#input-established').value
+  const inputDescription =  document.querySelector('#input-description').value
+  const inputImage = document.querySelector('#input-url').value
+  const inputCity = document.querySelector('#input-city').value
+  const countryId = parseInt(document.querySelector('#hidden-country-id').value)
+
+  postPark(parkNameInput, inputEstablished, inputDescription, inputImage, inputCity, countryId)
+}
+
+// country dropdown functionality
 function selectionChange(){
   const selectElement = document.querySelector('#list');
     let selectedCountryName = event.currentTarget.value;
@@ -24,28 +38,19 @@ function selectionChange(){
     hiddenId.value = selectedCountry.id;
   };
 
+// add a new country to dropdown
+  function runList() {
+    const countryNameInput = document.getElementById("new-country-name").value
+    const countryLanguageInput = document.getElementById("new-country-language").value
+    const countryContinentInput = document.getElementById("new-country-continent").value
 
+    postCountry(countryNameInput, countryLanguageInput, countryContinentInput);
+    document.getElementById("new-country-name").value = ""
+    document.getElementById("new-country-language").value = ""
+    document.getElementById("new-country-continent").value = ""
+  }
 
-
-getCountries();
-getParks();
-
-function createFormHandler(e) {
-  e.preventDefault()
-
-  const parkNameInput = document.querySelector('#input-park-name').value
-  const inputEstablished =  document.querySelector('#input-established').value
-  const inputDescription =  document.querySelector('#input-description').value
-  const inputImage = document.querySelector('#input-url').value
-  const inputCity = document.querySelector('#input-city').value
-  const countryId = parseInt(document.querySelector('#hidden-country-id').value)
-
-  postPark(parkNameInput, inputEstablished, inputDescription, inputImage, inputCity, countryId)
-
-
-}
-
-// fetch functions
+// fetch parks, get and post functions
 function getParks(){
   fetch(parksUrl)
   .then(response => response.json())
@@ -56,18 +61,6 @@ function getParks(){
     });
   })
 }
-
-function getCountries() {
-  fetch(countriesURL)
-  .then(response => response.json())
-  .then(countries => {
-    countries.data.forEach((country) => {
-      let newCountry = new Country(country, country.attributes)
-      newCountry.createNewCountryOption();
-    })
-  })
-}
-
 
 function postPark(name, established, description, image_url, nearest_city, country_id) {
   let bodyData = {name, established, description, image_url, nearest_city, country_id}
@@ -89,6 +82,18 @@ function postPark(name, established, description, image_url, nearest_city, count
   })
 }
 
+// fetch countries, get and post functions
+function getCountries() {
+  fetch(countriesURL)
+  .then(response => response.json())
+  .then(countries => {
+    countries.data.forEach((country) => {
+      let newCountry = new Country(country, country.attributes)
+      newCountry.createNewCountryOption();
+    })
+  })
+}
+
 function postCountry(name, language, continent) {
   let bodyData = {name, language, continent}
 
@@ -105,15 +110,4 @@ function postCountry(name, language, continent) {
     newCountry.createNewCountryOption();
 
   })
-}
-
-function runList() {
-  const countryNameInput = document.getElementById("new-country-name").value
-  const countryLanguageInput = document.getElementById("new-country-language").value
-  const countryContinentInput = document.getElementById("new-country-continent").value
-
-  postCountry(countryNameInput, countryLanguageInput, countryContinentInput);
-  document.getElementById("new-country-name").value = ""
-  document.getElementById("new-country-language").value = ""
-  document.getElementById("new-country-continent").value = ""
 }
