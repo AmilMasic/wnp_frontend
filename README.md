@@ -1,6 +1,6 @@
 # README
 
-# World National Parks
+# World National Parks, Frontend
 
 A simple webapp that allows users to create and view national parks all over the world.
 
