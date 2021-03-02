@@ -13,27 +13,27 @@
   <body>
 
     <!-- Hero section begins -->
-    <section class="hero is-info is-halfheight  ">
+    <section class="hero is-info is-fullheight  ">
       <div class="hero-body ">
         <div class="container has-text-centered ">
           <p class="title has-text-black outlined is-size-1" id="">
           World National Parks
           </p>
-          <p class="subtitle has-text-black outlined">
+          <p class="title has-text-black outlined">
           Nearly 100 countries around the world have lands classified as a national park.
           </p>
-          <p class="has-text-black outlined">Click on the show parks button to see all the created parks so far.</p>
+
         </div>
       </div>
     </section>
     <!-- Hero section ends -->
 
     <!-- Create a park form begins -->
-    <div class="field is-grouped is-grouped-centered">
+    <div class="field is-grouped is-grouped-centered ">
       <!--  -->
 
     <div class="form-container">
-      <form id="create-park-form" style="">
+      <form id="create-park-form" class="" style="">
         <h3 class="title">Create a Park Form:</h3>
         <div class="field">
           <label class="label" for="name">The Park Name:</label>
@@ -117,9 +117,9 @@
             <input type="text" id="new-country-continent" name="" value="" placeholder="Africa...">
             <input type="button" class=" button is-small is-info is-light" name="button" value="Add New Country" onClick="runList()" />
           </div>
-          <!-- <br><br> -->
+          <br><br>
           <div class="field">
-            <input id= 'create-park-button' type="submit" name="submit" value="Create New Park" class="submit button is-info" >
+            <input id= 'create-park-button' type="submit" name="submit" value="Create New Park" class="submit button is-large is-primary" >
           </div>
       </form>
     </div>
@@ -129,15 +129,20 @@
     <!-- Create a park form ends -->
 
     <!-- Render all parks begins -->
-    <br>
-    <h1 class="subtitle center">List of all created parks</h1>
+  
+    <div class="rendered-parks">
+
+
+    <h1 class="title center">List of all created parks</h1>
       <br>
-    <div id="park-container" class="columns grid-xl is-multiline">
+    <section class="container">
+      <div class="columns features is-multiline" id="park-container">
+
+      </div>
 
 
-
-    </div>
+    </section>
     <!-- Render all parks ends -->
-
+    </div>
   </body>
 </html>
