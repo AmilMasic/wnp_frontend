@@ -2,3 +2,12 @@
   background: url(images/natpark01.jpg) center / cover;
 
 }
+.title {
+
+}
+.outlined {
+color: white;
+font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
