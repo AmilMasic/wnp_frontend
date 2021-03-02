@@ -11,77 +11,95 @@
     <title>World National Parks</title>
   </head>
   <body>
+
+    <!-- Hero section begins -->
     <section class="hero is-info is-halfheight  ">
       <div class="hero-body ">
-      <div class="container has-text-centered ">
-        <p class="title has-text-black outlined is-size-1" id="">
+        <div class="container has-text-centered ">
+          <p class="title has-text-black outlined is-size-1" id="">
           World National Parks
-        </p>
-        <p class="subtitle has-text-black outlined">
+          </p>
+          <p class="subtitle has-text-black outlined">
           Nearly 100 countries around the world have lands classified as a national park.
-        </p>
-        <p class="has-text-black outlined">Click on the show parks button to see all the created parks so far.</p>
+          </p>
+          <p class="has-text-black outlined">Click on the show parks button to see all the created parks so far.</p>
+        </div>
       </div>
-    </div>
-
     </section>
+    <!-- Hero section ends -->
+
+    <!-- Create a park form begins -->
     <div class="form-container">
+      <form id="create-park-form" style="">
+        <h3>Create a Park!</h3>
 
-  <form id="create-park-form" style="">
-    <h3>Create a Park!</h3>
-    <label for="name">The Park Name:</label>
-    <input id='input-park-name' type="text" name="name" value="" placeholder="Yellowstone..." class="input-text">
-    <br><br>
-    <label for="established">What year was the park established?</label>
-    <input id='input-established' type="text" name="established" value="" placeholder="1872..." class="input-text">
-    <br><br>
-    <label for="description">Add a description:</label>
-    <br>
-    <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Yellowstone is the first National..."></textarea>
-    <br><br>
-    <label for="image">Image link</label>
-    <input id='input-url' type="text" name="image" value="" placeholder="www.image.com/image-url-uri...." class="input-text">
-    <br><br>
-    <label for="city">The Closest City:</label>
-    <input id='input-city' type="text" name="city" value="" placeholder="West Yellowstone, MT..." class="input-text">
-    <br><br>
-      <div > Country:
-        <select name="list" id="list" onchange="selectionChange()">
-          <option value="">Bandiaterra...</option>
-    	  </select>
-
-
-        <br><br>
-        <label for="language">Language:</label>
-        <input type="text" id="language" disabled placeholder="Danish">
-        <input type="hidden" id="hidden-country-id">
-        <br><br>
-        <label for="language">Continent:</label>
-        <input type="text" id="continent" placeholder="Asia" disabled>
+        <label for="name">The Park Name:</label>
+        <input id='input-park-name' type="text" name="name" value="" placeholder="Yellowstone..." class="input-text">
         <br><br>
 
-      </div>
-      <br>
-      <div class="create-new-country-form"> Or Create a new Country if it isn't listed!
+        <label for="established">What year was the park established?</label>
+        <input id='input-established' type="text" name="established" value="" placeholder="1872..." class="input-text">
+        <br><br>
+
+        <label for="description">Add a description:</label>
         <br>
-        <label for="">New Country:</label>
-        <input type="text" id="new-country-name" placeholder="Mozambique..">
+        <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Yellowstone is the first National..."></textarea>
         <br><br>
-        <label for="">Language:</label>
-        <input type="text" id="new-country-language" name="" value="" placeholder="Shona...">
-        <br><br>
-        <label for="">Continent</label>
-        <input type="text" id="new-country-continent" name="" value="" placeholder="Africa...">
-        <input type="button" name="button" value="Add New" onClick="runList()" />
-      </div>
-    <br><br>
 
-    <input id= 'create-park-button' type="submit" name="submit" value="Create New Park" class="submit" >
-  </form>
-  <br><br>
-</div>
+        <label for="image">Image link</label>
+        <input id='input-url' type="text" name="image" value="" placeholder="www.image.com/image-url-uri...." class="input-text">
+        <br><br>
+
+        <label for="city">The Closest City:</label>
+        <input id='input-city' type="text" name="city" value="" placeholder="West Yellowstone, MT..." class="input-text">
+        <br><br>
+        <!-- Select a country begins -->
+        <div > Country:
+          <select name="list" id="list" onchange="selectionChange()">
+            <option value="">Bandiaterra...</option>
+      	  </select>
+
+
+          <br><br>
+          <label for="language">Language:</label>
+          <input type="text" id="language" disabled placeholder="Danish">
+          <input type="hidden" id="hidden-country-id">
+          <br><br>
+          <label for="language">Continent:</label>
+          <input type="text" id="continent" placeholder="Asia" disabled>
+          <br><br>
+        </div>
+        <!-- Select a country ends -->
+        <br>
+        <!-- Create a country begins -->
+        <div class="create-new-country-form"> Or Create a new Country if it isn't listed!
+          <br>
+          <label for="">New Country:</label>
+          <input type="text" id="new-country-name" placeholder="Mozambique..">
+          <br><br>
+
+          <label for="">Language:</label>
+          <input type="text" id="new-country-language" name="" value="" placeholder="Shona...">
+          <br><br>
+
+          <label for="">Continent</label>
+          <input type="text" id="new-country-continent" name="" value="" placeholder="Africa...">
+          <input type="button" name="button" value="Add New" onClick="runList()" />
+        </div>
+        <!-- Create a country ends -->
+        <br><br>
+
+        <input id= 'create-park-button' type="submit" name="submit" value="Create New Park" class="submit" >
+      </form>
+      <br><br>
+    </div>
+    <!-- Create a park form ends -->
+
+    <!-- Render all parks begins -->
     <div id="park-container">
       <h3>List of all created parks</h3>
     </div>
+    <!-- Render all parks ends -->
+
   </body>
 </html>
