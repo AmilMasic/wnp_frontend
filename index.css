@@ -1,0 +1,37 @@
+.field {
+  background: url(images/natpark02.jpg) center ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.hero {
+  background: url(images/natpark01.jpg) center ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.card-background {
+  background: #d3d3d3;
+}
+.outlined {
+color: black;
+font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.outlined-small {
+color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.rendered-parks {
+  background: url(images/natpark03.jpg) center ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
