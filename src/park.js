@@ -14,16 +14,22 @@ class Park {
     renderPark() {
 
     return `
-    <div data-id=${this.id}>
-    <img src=${this.image_url} height="300" width="450">
-    <br>
-    <h3 class="park-name"> Park Name: ${this.name}</h3>
-    <p class="established">Established in: ${this.established}</p>
-    <p class="nearest-city">The Nearest City: ${this.nearest_city}</p>
-    <p class="country-name">Country: ${this.country.name}</p>
-    <p class="continent">Continent: ${this.country.continent}</p>
-    <p class="language">Oficial Langauge: ${this.country.language}</p>
-    <p class="description">Short Description: ${this.description}</p>
+    <div class="column is-one-third ">
+      <div data-id=${this.id}>
+      <div class="image card">
+        <figure class="image is-4by3">
+          <img src=${this.image_url} >
+        </figure>
+      </div>
+      <br>
+      <h3 class="park-name"> Park Name: ${this.name}</h3>
+      <p class="established">Established in: ${this.established}</p>
+      <p class="nearest-city">The Nearest City: ${this.nearest_city}</p>
+      <p class="country-name">Country: ${this.country.name}</p>
+      <p class="continent">Continent: ${this.country.continent}</p>
+      <p class="language">Oficial Langauge: ${this.country.language}</p>
+      <p class="description">Short Description: ${this.description}</p>
+      </div>
     </div>
     <br>`;
   }
